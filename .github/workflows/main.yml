@@ -29,10 +29,6 @@ jobs:
             script-name: src/main.py
             onefile: true
 
-        # Copy the save folder to the build directory
-        - name: Copy save folder
-          run: xcopy ./save ./build/save /E /I
-  
         # Uploads artifact
         - name: Upload Artifact
           uses: actions/upload-artifact@v3
@@ -44,4 +40,4 @@ jobs:
           uses: actions/upload-artifact@v3
           with:
             name: save
-            path: build/save
+            path: ./save/
