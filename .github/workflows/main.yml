@@ -30,14 +30,14 @@ jobs:
             onefile: true
 
         # Uploads artifact
-        - name: Upload Artifact
-          uses: actions/upload-artifact@v3
-          with:
-            name: exe
-            path: build/main.exe
+        - name: Prepare artifacts
+          run: |
+            mkdir artifact
+            cp build/main.exe artifact/
+            cp -r ./save/ artifact/
 
-        - name: Upload save folder
+        - name: Upload artifacts
           uses: actions/upload-artifact@v3
           with:
-            name: save
-            path: ./save/
+            name: artifact
+            path: ./artifact/
