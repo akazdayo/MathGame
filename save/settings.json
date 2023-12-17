@@ -11,5 +11,14 @@
             "min": 1,
             "max": 20
         }
+    },
+    "scoreTitle": {
+        "0-0": "What? You didn't even try?",
+        "1-10000": "Oops! You need to practice more!",
+        "10001-60000": "You can do better!",
+        "60001-70000": "Great job!",
+        "70001-90000": "Awesome! You are a math whiz!",
+        "90001-100000": "Perfect! You are a math genius!",
+        "100001-1000000": "You are a math god!"
     }
 }

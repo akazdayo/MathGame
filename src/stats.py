@@ -1,6 +1,5 @@
 import json
 import time
-from rich import print
 from rich.prompt import Prompt
 
 
@@ -38,7 +37,6 @@ class Statistics:
                 "level": 1,
                 "highScore": 0,
                 "lastScore": 0,
-                "highScorePerProblem": 0,
                 "totalGames": 0,
                 "totalScore": 0
             }
