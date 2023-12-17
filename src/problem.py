@@ -10,13 +10,17 @@ class Problem:
         self.answer = 0
         self.problem_rule = [settings["problem"]["value"]["min"],
                              settings["problem"]["value"]["max"]]
+        problem_type = settings["problem"]["type"]
+        self.all_problem_type = [
+            char for char in "+-*/" if char in problem_type]
+        print(self.all_problem_type)
 
     def create(self):
         self.formula = []
         for _ in range(1):
             self.formula.append(random.randint(
                 self.problem_rule[0], self.problem_rule[1]))
-            self.formula.append(random.choice(["+", "-", "*", "/"]))
+            self.formula.append(random.choice(self.all_problem_type))
         self.formula.append(random.randint(
             self.problem_rule[0], self.problem_rule[1]))
         return self.formula

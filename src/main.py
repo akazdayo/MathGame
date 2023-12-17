@@ -59,7 +59,6 @@ class GameMode:
         title = self.loop.scores.settings["scoreTitle"]
         all_title = [(list(map(int, re.findall(r'\d+', key))), value)
                      for key, value in title.items()]
-        print(all_title)
         return all_title
 
     def start(self, round: int) -> None:

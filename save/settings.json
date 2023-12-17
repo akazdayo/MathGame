@@ -10,7 +10,8 @@
         "value": {
             "min": 1,
             "max": 20
-        }
+        },
+        "type": "+*-/"
     },
     "scoreTitle": {
         "0-2999": "It should have been impossible.",
