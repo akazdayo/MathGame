@@ -5,6 +5,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from rich.prompt import Prompt
 from rich.console import Console
+import re
 
 
 class Loop:
@@ -29,7 +30,7 @@ class Loop:
         else:
             print(
                 f"[italic red]In Correct[/italic red]\n[green]The correct answer is[/green] {ans}")
-            score = self.scores.settings["inCorrectScore"]
+            score = self.scores.settings["score"]["inCorrectScore"]
         print(f"Score: {score}")
         self.score += score
 
@@ -52,11 +53,19 @@ class GameMode:
         self.loop = Loop()
         self.stats = stats.Statistics()
         self.console = Console()
+        self.title = self.score_title()
+
+    def score_title(self):
+        title = self.loop.scores.settings["scoreTitle"]
+        all_title = [(list(map(int, re.findall(r'\d+', key))), value)
+                     for key, value in title.items()]
+        print(all_title)
+        return all_title
 
     def start(self, round: int) -> None:
+        self.score_title()
         # ラウンド数分ループ
         for i in range(round):
-            # print(f"Round {i+1}")
             self.console.rule(f"[bold cyan]Round {i+1}")
             self.loop.run()
 
@@ -68,6 +77,9 @@ class GameMode:
         # 結果表示
         print(f"Total Score: {self.loop.score}")
         print(f"Average Score: {avg_score}")
+        for title in self.title:
+            if avg_score >= title[0][0] and avg_score <= title[0][1]:
+                print(f"Your title: {title[1]}")
 
         # ユーザー情報更新
         name = self.stats.ask_name()
@@ -93,6 +105,8 @@ class GameMode:
 
         # 更新データを保存
         self.stats.save()
+
+        # 統計表示
         print(self.stats.save_data["users"][name])
 
 

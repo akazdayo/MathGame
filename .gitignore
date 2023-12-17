@@ -163,3 +163,4 @@ cython_debug/
 *.build
 *.dist
 *.onefile-build
+memo.txt

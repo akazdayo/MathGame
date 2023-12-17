@@ -6,16 +6,15 @@ from rich.prompt import Prompt
 class Scores:
     def __init__(self) -> None:
         with open("./save/settings.json", "r") as f:
-            settings = json.load(f)
-        self.settings = settings.copy()["score"]
+            self.settings = json.load(f)
         self.end_flag = False
 
     def timer(self):
         self.end_flag = False
-        score = self.settings["firstScore"]
+        score = self.settings["score"]["firstScore"]
         while not self.end_flag:
-            time.sleep(self.settings["interval"])
-            score -= self.settings["decrease"]
+            time.sleep(self.settings["score"]["interval"])
+            score -= self.settings["score"]["decrease"]
         return score
 
 

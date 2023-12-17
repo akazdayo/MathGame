@@ -13,12 +13,15 @@
         }
     },
     "scoreTitle": {
-        "0-0": "What? You didn't even try?",
-        "1-10000": "Oops! You need to practice more!",
-        "10001-60000": "You can do better!",
-        "60001-70000": "Great job!",
-        "70001-90000": "Awesome! You are a math whiz!",
-        "90001-100000": "Perfect! You are a math genius!",
-        "100001-1000000": "You are a math god!"
+        "0-2999": "It should have been impossible.",
+        "3000-4500": "Oops! You need to practice more!",
+        "4501-6000": "You can do better!",
+        "6001-7500": "Great job!",
+        "7501-9000": "Good job!",
+        "9001-10500": "Great! I see you're good at math!",
+        "10501-12000": "You are a math king!",
+        "12001-13500": "You are a math god!",
+        "13501-14999": "You are a super duper math god!",
+        "15000-15000": "What!? You are the god of quick answers!"
     }
 }
