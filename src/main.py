@@ -113,6 +113,7 @@ class MainMenu:
             name = self.stats.ask_name()
             print(self.stats.save_data["users"][name])
             print(self.stats.save_data["statistic"])
+        input()
 
 
 if __name__ == "__main__":
