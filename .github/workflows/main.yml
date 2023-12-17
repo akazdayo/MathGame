@@ -18,6 +18,10 @@ jobs:
             python-version: '3.10.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
             architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
   
+        # Install dependencies
+        - name: Install dependencies
+          run: pip install -r requirements.txt
+
         # Build python script into a stand-alone exe
         - uses: Nuitka/Nuitka-Action@main
           with:
@@ -25,6 +29,10 @@ jobs:
             script-name: src/main.py
             onefile: true
             follow-imports: true
+
+        # Copy the save folder to the build directory
+        - name: Copy save folder
+          run: copy ./save ./build/save
   
         # Uploads artifact
         - name: Upload Artifact
@@ -32,3 +40,9 @@ jobs:
           with:
             name: exe
             path: build/main.exe
+
+        - name: Upload save folder
+          uses: actions/upload-artifact@v3
+          with:
+            name: save
+            path: build/save
