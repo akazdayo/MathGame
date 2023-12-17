@@ -28,11 +28,10 @@ jobs:
             nuitka-version: main
             script-name: src/main.py
             onefile: true
-            follow-imports: true
 
         # Copy the save folder to the build directory
         - name: Copy save folder
-          run: copy ./save ./build/save
+          run: xcopy ./save ./build/save /E /I
   
         # Uploads artifact
         - name: Upload Artifact
