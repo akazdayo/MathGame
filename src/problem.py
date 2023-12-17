@@ -13,7 +13,6 @@ class Problem:
         problem_type = settings["problem"]["type"]
         self.all_problem_type = [
             char for char in "+-*/" if char in problem_type]
-        print(self.all_problem_type)
 
     def create(self):
         self.formula = []
