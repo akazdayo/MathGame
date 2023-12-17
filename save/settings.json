@@ -1,0 +1,15 @@
+{
+    "score": {
+        "interval": 0.1,
+        "decrease": 50,
+        "firstScore": 15000,
+        "correctScore": 3000,
+        "inCorrectScore": 1500
+    },
+    "problem": {
+        "value": {
+            "min": 1,
+            "max": 20
+        }
+    }
+}

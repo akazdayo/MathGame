@@ -1,0 +1,15 @@
+{
+    "users": {
+        "defaultUser": {
+            "level": 1,
+            "highScore": 0,
+            "lastScore": 0,
+            "totalGames": 0,
+            "totalScore": 0
+        }
+    },
+    "statistic": {
+        "totalGames": 0,
+        "totalHighScore": 0
+    }
+}
