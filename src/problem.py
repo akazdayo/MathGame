@@ -1,16 +1,17 @@
 import random
 import json
+import math
 
 
 class Problem:
     def __init__(self) -> None:
         with open("./save/settings.json", "r") as f:
-            settings = json.load(f)
+            self.settings = json.load(f)
         self.formula = []  # [1, "+", 2, "*", 3, "-", 4, "/", 5]
         self.answer = 0
-        self.problem_rule = [settings["problem"]["value"]["min"],
-                             settings["problem"]["value"]["max"]]
-        problem_type = settings["problem"]["type"]
+        self.problem_rule = [self.settings["problem"]["value"]["min"],
+                             self.settings["problem"]["value"]["max"]]
+        problem_type = self.settings["problem"]["type"]
         self.all_problem_type = [
             char for char in "+-*/" if char in problem_type]
 
@@ -33,6 +34,9 @@ class Problem:
             self.answer = self.formula[0] * self.formula[2]
         elif self.formula[1] == "/":
             self.answer = self.formula[0] / self.formula[2]
+        # decimalPlaces以降を切り捨て
+        self.answer = round(
+            self.answer, self.settings["problem"]["decimalPlaces"])
         return self.answer
 
 
