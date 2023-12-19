@@ -32,12 +32,12 @@ jobs:
         # Uploads artifact
         - name: Prepare artifacts
           run: |
-            mkdir artifact
-            cp build/main.exe artifact/
-            cp -r ./save/ artifact/
+            mkdir mathgame
+            cp build/main.exe mathgame/
+            cp -r ./save/ mathgame/
 
         - name: Upload artifacts
           uses: actions/upload-artifact@v3
           with:
-            name: artifact
-            path: ./artifact/
+            name: mathgame
+            path: ./mathgame/
