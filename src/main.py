@@ -24,7 +24,7 @@ class Loop:
 
             score = timer_task.result()
             ans_input = ans_task.result()
-        ans = self.problem.check()
+        ans = self.problem.check(formula)
         if float(ans_input) == float(ans):
             print("[italic green]Correct[/italic green]")
         else:
